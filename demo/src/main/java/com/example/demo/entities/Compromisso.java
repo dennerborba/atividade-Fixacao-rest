@@ -14,11 +14,11 @@ public class Compromisso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(length = 50, nullable = false)
-	private String localcomp;
+	private String local;
 	@Column(length = 12, nullable = false)
 	private String contato;
 	@Column(length = 100, nullable = false)
-	private String datacomp;
+	private String data;
 	@Column(length = 100, nullable = false)
 	private String hora;
 	@Column(length = 100, nullable = false)
@@ -30,13 +30,13 @@ public class Compromisso {
 	}
 	public Compromisso() {
 	}
-	public Compromisso(int id, String localcomp, String contato, String datacomp, String hora, String status,
+	public Compromisso(int id, String local, String contato, String data, String hora, String status,
 			String idcontato) {
 		super();
 		this.id = id;
-		this.localcomp = localcomp;
+		this.local = local;
 		this.contato = contato;
-		this.datacomp = datacomp;
+		this.data = data;
 		this.hora = hora;
 		this.status = status;
 		this.idcontato = idcontato;
@@ -44,11 +44,11 @@ public class Compromisso {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getLocalcomp() {
-		return localcomp;
+	public String getLocal() {
+		return local;
 	}
-	public void setLocalcomp(String localcomp) {
-		this.localcomp = localcomp;
+	public void setLocal(String local) {
+		this.local = local;
 	}
 	public String getContato() {
 		return contato;
@@ -56,11 +56,11 @@ public class Compromisso {
 	public void setContato(String contato) {
 		this.contato = contato;
 	}
-	public String getDatacomp() {
-		return datacomp;
+	public String getData() {
+		return data;
 	}
-	public void setDatacomp(String datacomp) {
-		this.datacomp = datacomp;
+	public void setData(String data) {
+		this.data = data;
 	}
 	public String getHora() {
 		return hora;

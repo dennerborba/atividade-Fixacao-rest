@@ -42,9 +42,9 @@ public class CompromissoController {
 		Optional<Compromisso> opCompromisso = repo.findById(idcompromisso);
 				try {
 					Compromisso ct = opCompromisso.get();
-					ct.setLocalcomp(compromisso.getLocalcomp());
+					ct.setLocal(compromisso.getLocal());
 					ct.setContato(compromisso.getContato());
-					ct.setDatacomp(compromisso.getDatacomp());
+					ct.setData(compromisso.getData());
 					ct.setHora(compromisso.getHora());
 					ct.setStatus(compromisso.getStatus());
 					ct.setIdcontato(compromisso.getIdcontato());
@@ -68,7 +68,39 @@ public class CompromissoController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 	}
+		
+	@GetMapping("/local/{local}")
+	public ResponseEntity<List<Compromisso>> getCompromissosPorLocal(@PathVariable("local") String local) {
+	    List<Compromisso> compromissos = repo.findByLocal(local);
+	    if (compromissos.isEmpty()) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	    } else {
+	        return ResponseEntity.status(HttpStatus.OK).body(compromissos);
+	    }
+	}
 	
+	@GetMapping("/data/{datacomp}")
+	public ResponseEntity<List<Compromisso>> getCompromissosPorData(@PathVariable("datacomp") String data) {
+	    List<Compromisso> compromissos = repo.findByData(data);
+	    
+	    if (compromissos.isEmpty()) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	    } else {
+	        return ResponseEntity.status(HttpStatus.OK).body(compromissos);
+	    }
+	}
+	
+	@GetMapping("/contato/{contato}")
+	public ResponseEntity<List<Compromisso>> getCompromissosContato(@PathVariable("contato") String contato) {
+	    List<Compromisso> compromissos = repo.findByContato(contato);
+	    
+	    if (compromissos.isEmpty()) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	    } else {
+	        return ResponseEntity.status(HttpStatus.OK).body(compromissos);
+	    }
+	}
+
 		
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Compromisso>DeletarUmCompromisso(@PathVariable("id")Long id){
