@@ -18,9 +18,20 @@ public class Contato {
 	private String nome;
 	@Column(length = 100, nullable = false)
 	private String email;
+	@Column(length = 15, nullable = false)
+	private String telefone;
+	
 	
 	@Transient
 	private String observacao;
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
 	public int getId() {
 		return id;
@@ -54,10 +65,11 @@ public class Contato {
 		this.observacao = observacao;
 	}
 
-	public Contato(int id, String nome, String email) {
+	public Contato(int id, String nome, String email, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.telefone = telefone;
 	}
 
 	public Contato() {
